@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>유니테크</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
+    <link href="css/main.css" rel="stylesheet"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js" integrity="sha512-pumBsjNRGGqkPzKHndZMaAG+bir374sORyzM3uulLV14lN5LyykqNk8eEeUlUkB3U0M4FApyaHraT65ihJhDpQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+    <script>
+        window.onload = function(){
+            var swiper = new Swiper(".main_visual", {
+            spaceBetween: 0,
+            centeredSlides: true,
+            autoplay: {
+                delay: 5000,
+                disableOnInteraction: false,
+            },
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: true,
+            },
+            navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
+            },
+            });
+            let start = document.getElementsByClassName('start')[0];
+            let stop = document.getElementsByClassName('stop')[0];
+            start.style.display = 'none';
+            stop.onclick = function(){
+                swiper.autoplay.stop();
+                if(start.style.display == 'none'){
+                    start.style.display = 'block';
+                    stop.style.display = 'none';
+                }
+            }
+            start.onclick = function(){
+                swiper.autoplay.start();
+                if(stop.style.display == 'none'){
+                    stop.style.display = 'block';
+                    start.style.display = 'none';
+                }
+            }
+            let cont02 = document.getElementsByClassName('cont02')[0];
+            let cont02Btn = cont02.getElementsByTagName('li');
+            let cont02List = cont02.getElementsByClassName('list');
+            for(let i = 0; i < cont02Btn.length; i++){
+                cont02Btn[i].onclick = function(){
+                    cont02List[0].classList.remove('on');
+                    cont02List[1].classList.remove('on');
+                    cont02List[2].classList.remove('on');
+
+                    cont02List[i].classList.add('on');
+
+                    cont02Btn[0].classList.remove('on'); 
+                    cont02Btn[1].classList.remove('on'); 
+                    cont02Btn[2].classList.remove('on');
+                    
+                    cont02Btn[i].classList.add('on');
+                }
+            }
+            let cont03 = document.getElementsByClassName('cont03')[0];
+            let cont03Text = cont03.getElementsByTagName('h2')[0];
+            window.onscroll = function(){
+                let scrollBar = window.scrollY;
+                if(cont03.offsetTop < scrollBar){
+                        cont03Text.classList.add('on');
+                    }
+                    else{
+                        cont03Text.classList.remove('on');
+                    }
+            }
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <div class="inner">
+            <h1>
+                <a href="#"><img src="img/unitech_logo.svg" alt="logo"/></a>
+            </h1>
+            <div>
+                <ul>
+                    <li><a href="#">KR</a></li>
+                    <li><a href="#">EN</a></li>
+                </ul>
+                <figure>
+                    <img src="img/menu.png" alt="meun"/>
+                </figure>
+            </div>
+        </div>
+    </header>
+    <main>
+        <!-- Swiper -->
+        <div class="swiper main_visual">
+            <div class="swiper-wrapper">
+            <div class="swiper-slide">
+                <img src="img/main_visual01.jpg" alt=""/>
+                <h2>더 나은 미래를 위한<br/>모빌리티 솔루션을 제공합니다.</h2>
+            </div>
+            <div class="swiper-slide">
+                <img src="img/main_visual02.jpg" alt=""/>
+                <h2>더 나은 미래를 위한<br/>모빌리티 솔루션을 제공합니다.</h2>
+            </div>
+            <div class="swiper-slide">
+                <img src="img/main_visual03.jpg" alt=""/>
+                <h2>더 나은 미래를 위한<br/>모빌리티 솔루션을 제공합니다.</h2>
+            </div>
+            </div>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-pagination"></div>
+        </div>
+        <div class="swiper-cont01">
+            <div class="start">
+                <img src="img/start.png" alt=""/>
+            </div>
+            <div class="stop">
+                <img src="img/stop.png" alt=""/>
+            </div>
+        </div>
+        <section class="cont01">
+            <div class="text">
+                <h2>24년 이상의</h2>
+                <h3>특수화학 솔루션 전문기업</h3>
+                <p>접착제 솔루션 전문기업 유니테크는 자동차, 조선/해양, EV, 전자 등 다양한 산업분야에서 새로운 비즈니스를 창출해 나갑니다.</p>
+            </div>
+        </section>
+        <section class="cont02">
+            <div class="inner">
+                <ul class="cont02_meun">
+                    <li class="on">MOBILITY</li>
+                    <li>ENERAY</li>
+                    <li>INNOVATION</li>
+                </ul>
+                <div class="list on">
+                    <div class="item">
+                        <figure>
+                            <img src="img/cont02_Img01.jpg" alt=""/>
+                        </figure>
+                        <div class="text">
+                            <strong>첨단 모빌리티 소재의 중심</strong>
+                            <h2>MOBILITY</h2>
+                            <p>보다 안전하고, 보다 가벼워질 수 있는 모빌리터 소재를 제공합니다.</p>
+                            <span>AUTOMOTIVE</span>
+                        </div>
+                    </div>
+                </div>    
+                <div class="list">    
+                    <div class="item">
+                        <figure>
+                            <img src="img/cont02_img02.jpg" alt=""/>
+                        </figure>
+                        <div class="text">
+                            <strong>지속가능한 에너지 솔루션</strong>
+                            <h2>ENERAY</h2>
+                            <p>독창적인 기술력솨 우수한 품질로 지속가능한 에너지 솔루션을 제안합니다.</p>
+                            <span>LNG CARRIER</span>
+                            <span>BATTERY</span>
+                        </div>
+                    </div>
+                </div> 
+                <div class="list">
+                    <div class="item">
+                        <figure>
+                            <img src="img/cont02_img03.jpg" alt=""/>
+                        </figure>
+                        <div class="text">
+                            <strong>미래 혁신 소재 구현</strong>
+                            <h2>INNOVATION</h2>
+                            <p>극한의 환경에도 적용할 수 있는 첨단 접착 소재를 구현합니다.</p>
+                            <span>ELECTRONICS</span>
+                            <span>AEROSPACE</span>
+                        </div>
+                    </div>
+                </div>    
+            </div>
+        </section>
+        <section class="cont03">
+            <div class="inner">
+                <h2>우수한 품질과 기술로 최상의 고객만족을<br/>실현해나가겠습니다.</h2>
+                <div class="list">
+                    <div class="item">
+                        <strong>20</strong>
+                        <span>년</span>
+                        <p>자동차, 선박제품 연구개발 경력</p>
+                    </div>
+                    <div class="item">
+                        <strong>15</strong>
+                        <span>만톤</span>
+                        <p>전 세계 제품 제조 역량</p>
+                    </div>
+                    <div class="item">
+                        <strong>250</strong>
+                        <span>척</span>
+                        <p>LNG Carrier 누적 건조척 수</p>
+                    </div>
+                    <div class="item">
+                        <strong>100</strong>
+                        <span>개</span>
+                        <p>공급 고객사</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="cont04">
+            <figure>
+                <img src="img/cont04_Img.jpg" alt=""/>
+                <p>진보된 기술력을 바탕으로 고객에게<br/>지속가능한 경쟁력을 제공하는 유니테크로 <br/>발전해 나가겠습니다.</p>
+            </figure>
+        </section>
+    </main>
+</body>
+</html>
